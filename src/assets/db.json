@@ -1,0 +1,52 @@
+{
+    "lists": [
+      {
+        "id": 1, 
+        "name": "Дмитрий Лебедев", 
+        "email": "georgia.young@example.com", 
+        "phone": "+7(123)399-04-37",
+        "organization": "ООО 'Фемида'",
+        "img":"img_1.png"
+      },
+      {
+        "id": 2,  
+        "name": "Глеб Комаров", 
+        "email": "debbie.baker@example.com", 
+        "phone": "+7(123)090-47-83",
+        "organization": "ООО 'Аполо'",
+        "img":"img_2.png"
+      },
+      {
+        "id": 3,  
+        "name": "Максим Попов", 
+        "email": "michael.mitc@example.com", 
+        "phone": "+7(123)777-89-31",
+        "organization": "ООО 'Деметра'",
+        "img":"img_3.png"
+      },
+      {
+        "id": 4,  
+        "name": "Татьяна Романова", 
+        "email": "kenzi.lawson@example.com", 
+        "phone": "+7(123)399-04-37",
+        "organization": "ИП “Иванов И. И.” ",
+        "img":"img_4.png"
+      },
+      {
+        "id": 5,  
+        "name": "Тимофей Козлов", 
+        "email": "jessica.hanson@example.com", 
+        "phone": "+7(123)481-16-51",
+        "organization": "ООО 'Аполо'",
+        "img":"img_5.png"
+      },
+      {
+        "id": 6,  
+        "name": "Захар Романов", 
+        "email": "tim.jennings@example.com", 
+        "phone": "+7(123)442-90-62",
+        "organization": "ООО “Гера”",
+        "img":"img_6.png"
+      }
+    ]
+  }
