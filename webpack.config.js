@@ -7,6 +7,7 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
     filename: '[name].js',
     clean: true,
+    publicPath: '/',
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -32,11 +33,7 @@ module.exports = {
       },
       {
         test: /\.scss$/, // или /\.sass$/ для sass файлов
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader',
-        ],
+        use: ['style-loader', 'css-loader', 'sass-loader']
       },
       {
         test: /\.css$/,
@@ -47,5 +44,8 @@ module.exports = {
         type: 'asset/resource',
       },
     ]
+  },
+  devServer: {
+    historyApiFallback: true,
   }
 };
