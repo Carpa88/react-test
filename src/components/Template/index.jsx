@@ -1,4 +1,4 @@
-import React, { useState }  from 'react';
+import React  from 'react';
 import { Fragment } from 'react';
 
 import './Template.scss';
@@ -13,6 +13,7 @@ function Template(props){
     function onNavMenuClick(event){
         const namepage = event.target.attributes.namepage.nodeValue;
         props.switchPage(namepage);
+        console.log(namepage);
     };
 
     return( 
@@ -27,20 +28,23 @@ function Template(props){
             <aside>
                 <nav>
                     <ul>
-                    <Link to='/'>
+                    <Link to='/home'>
                         <li onClick={onNavMenuClick} 
-                            className={props.pageName === 'Home' ? 'active-item' : ''}
-                            namepage='Home'>
-                            Главная 
+                            namepage='Home'
+                            className={props.pageName === 'Home' ? 'active-item' : ''}>
+                            
+                            Главная
                         </li>
-                    </Link>
-                    <Link to='/users'>
+                        </Link>
+                
+                        <Link to='/users'>
                         <li onClick={onNavMenuClick} 
                             namepage='Users' 
                             className={props.pageName === 'Users' ? 'active-item' : ''}>
+                               
                             Пользо<wbr/>ва<wbr/>те<wbr/>ли
                         </li>
-                    </Link>
+                        </Link>
                     </ul>
                 </nav>
             </aside>
@@ -48,7 +52,7 @@ function Template(props){
             <div className='content'>
                 <h2 className='content-title'>Добро Пожаловать</h2>
                 <div className='content-body '>
-                    <Route exact path='/' component={Home}/>
+                    <Route path='/home' component={Home}/>
                     <Route path='/users' component={Users}/>
                 </div>
             </div>    

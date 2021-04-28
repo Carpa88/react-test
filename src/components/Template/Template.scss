@@ -24,6 +24,7 @@ header{
 
 main{
     display: flex;
+    border-bottom: solid 1px #E5E5E5;
 
     aside{
         width: 21%;
@@ -51,12 +52,11 @@ main{
         background-color: #E5E5E5;
         width: 100%;
         padding: 30px;
-        overflow-x: scroll;
         
         .content-title{
             font-size: 24px;
             margin-bottom: 30px;
-        
+            box-sizing: border-box;
         }
     }
 }

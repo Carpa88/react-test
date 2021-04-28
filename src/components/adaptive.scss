@@ -1,14 +1,16 @@
 @media (max-width: 768px){
    main{
-        aside{
-        width: 15opx;
-
-        li{
-            padding: 8px 0;
+    aside{
+    width: 15opx;
+        ul{
+            li{
+                padding: 8px 5px;
+            }
         }
     }
         .content{
             padding: 2px;
+            overflow-x: scroll;
         }
     }
 }
