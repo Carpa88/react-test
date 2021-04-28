@@ -1,11 +1,21 @@
 import React, { useState, useEffect }from 'react';
 import ReactDOM from 'react-dom';
-import SingIn from './components/SingIn/index.jsx';
-import Template from './components/Template/index.jsx';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+import SingIn from './components/SingIn/index.jsx';
+import Template from './components/Template/index.jsx';
 import './style.scss';
+
 import './components/adaptive.scss'
+
 
 function App(){
   const [page, setPage] = useState(localStorage.getItem('login') ? `${localStorage.getItem('currentPage')}`:'SingIn');
@@ -23,7 +33,7 @@ function App(){
   }
 
   return(
-      <div className='container'>
+      <div className='container overflow-hidden'>
           {page === 'SingIn' && <SingIn 
                                 switchPage={switchPage}
                                 userName={login}
@@ -37,4 +47,4 @@ function App(){
   )
 };
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Router><App /></Router>, document.getElementById('root'));

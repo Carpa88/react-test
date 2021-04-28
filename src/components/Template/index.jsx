@@ -4,6 +4,7 @@ import { Fragment } from 'react';
 import './Template.scss';
 import Home from './Home/index.jsx';
 import Users from './Users/index.jsx';
+import { Link, Route } from 'react-router-dom';
 
 
 
@@ -26,16 +27,20 @@ function Template(props){
             <aside>
                 <nav>
                     <ul>
+                    <Link to='/'>
                         <li onClick={onNavMenuClick} 
                             className={props.pageName === 'Home' ? 'active-item' : ''}
                             namepage='Home'>
-                            Главная
+                            Главная 
                         </li>
+                    </Link>
+                    <Link to='/users'>
                         <li onClick={onNavMenuClick} 
                             namepage='Users' 
                             className={props.pageName === 'Users' ? 'active-item' : ''}>
                             Пользо<wbr/>ва<wbr/>те<wbr/>ли
                         </li>
+                    </Link>
                     </ul>
                 </nav>
             </aside>
@@ -43,8 +48,8 @@ function Template(props){
             <div className='content'>
                 <h2 className='content-title'>Добро Пожаловать</h2>
                 <div className='content-body '>
-                   {props.pageName==="Home" && <Home />}
-                   {props.pageName==="Users" && <Users />}
+                    <Route exact path='/' component={Home}/>
+                    <Route path='/users' component={Users}/>
                 </div>
             </div>    
         </main>

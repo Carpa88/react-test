@@ -28,7 +28,7 @@ function SingIn(props){
     }
 
     return( 
-    <div className='row'>
+    <div className='row gy-5'>
       <div className="col-4 sing-in">
         <h3>Авторизация</h3>
         <form id='sing-in-form' onSubmit={onSubmit}>
