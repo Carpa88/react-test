@@ -4,8 +4,8 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import SingIn from './components/SingIn/index.jsx';
-import Template from './components/Template/index.jsx';
+import SingIn from './components/SingIn/index';
+import Template from './components/Template/index';
 import './style.scss';
 
 import './components/adaptive.scss'
