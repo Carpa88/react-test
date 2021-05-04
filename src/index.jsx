@@ -1,44 +1,47 @@
-import React, { useState, useEffect }from 'react';
+import React, { useState }from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from "react-router-dom";
+import { HashRouter, Switch, Route, Redirect} from "react-router-dom";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import SingIn from './components/SingIn/index';
-import Template from './components/Template/index';
+import Home from './components/Template/Home/index';
+import Users from './components/Template/Users/index';
 import './style.scss';
 
 import './components/adaptive.scss'
 
 
+
+
 function App(){
-  const [page, setPage] = useState(localStorage.getItem('login') ? `${localStorage.getItem('currentPage')}`:'SingIn');
   const [login, setLogin] = useState(localStorage.getItem('login') || '');
 
-  useEffect(() => {
-    localStorage.setItem('currentPage', page || 'Home');
-  }, [page]);
-
-  function switchPage(pageName){
-     setPage(pageName);
-  };
   function setUserName(name){
     setLogin(name);
   }
 
   return(
       <div className='container overflow-hidden'>
-          {page === 'SingIn' && <SingIn 
-                                switchPage={switchPage}
-                                userName={login}
-                                setUserName={setUserName}/>}
-                                
-          {(page === 'Home' || page === 'Users')  && <Template 
-                                                      switchPage={switchPage} 
-                                                      pageName={page}
-                                                      userName={login}/>}
+        <Switch>          
+                         
+          <Route path='/' exact>
+            {login ? <Redirect to="/" /> : <Redirect to="/singin" />}
+              <Home userName={login}/>
+          </Route>
+ 
+
+          <Route path='/users'>
+            <Users userName={login}/>
+          </Route>
+
+          <Route path='/singin'>
+              <SingIn userName={login} setUserName={setUserName}/> 
+          </Route>
+  
+        </Switch>
       </div>
   )
 };
 
-ReactDOM.render(<Router><App /></Router>, document.getElementById('root'));
+ReactDOM.render(<HashRouter><App /></HashRouter>, document.getElementById('root'));

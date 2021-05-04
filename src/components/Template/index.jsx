@@ -2,19 +2,11 @@ import React  from 'react';
 import { Fragment } from 'react';
 
 import './Template.scss';
-import Home from './Home/index.jsx';
-import Users from './Users/index.jsx';
-import { Link, Route } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 
 function Template(props){
-   
-    function onNavMenuClick(event){
-        const namepage = event.target.attributes.namepage.nodeValue;
-        props.switchPage(namepage);
-        console.log(namepage);
-    };
 
     return( 
     < Fragment>
@@ -28,23 +20,12 @@ function Template(props){
             <aside>
                 <nav>
                     <ul>
-                    <Link to='/home'>
-                        <li onClick={onNavMenuClick} 
-                            namepage='Home'
-                            className={props.pageName === 'Home' ? 'active-item' : ''}>
-                            
-                            Главная
-                        </li>
-                        </Link>
-                
-                        <Link to='/users'>
-                        <li onClick={onNavMenuClick} 
-                            namepage='Users' 
-                            className={props.pageName === 'Users' ? 'active-item' : ''}>
+                    
+                        <li><NavLink to='/' activeClassName='active-item' exact> Главная </NavLink></li>
                                
-                            Пользо<wbr/>ва<wbr/>те<wbr/>ли
+                        <li><NavLink to='/users' activeClassName='active-item'>
+                            Пользо<wbr/>ва<wbr/>те<wbr/>ли</NavLink>
                         </li>
-                        </Link>
                     </ul>
                 </nav>
             </aside>
@@ -52,8 +33,7 @@ function Template(props){
             <div className='content'>
                 <h2 className='content-title'>Добро Пожаловать</h2>
                 <div className='content-body '>
-                    <Route path='/home' component={Home}/>
-                    <Route path='/users' component={Users}/>
+                    {props.content}
                 </div>
             </div>    
         </main>

@@ -1,21 +1,25 @@
 import React, { useState }  from 'react';
+import { useHistory } from 'react-router-dom';
 
 import './SingIn.scss';
 
 function SingIn(props){
     const [pass, setPass] = useState('');
     const [error, setError] = useState(null);
-
-    const onSubmit = (event) => {
+    let history = useHistory();
+        
+     
+        
+    function onSubmit (event) {
         event.preventDefault();
         if ( !(props.userName && pass) ) {
           setError('Логин и пароль обательны для заполнения!');
           return
         }
         localStorage.setItem('login', props.userName);
-        props.switchPage('Home');
+        history.push("/");
       }
-
+    
     const onChange = (event) => {
         const value = event.target.value;
         const name = event.target.name;
@@ -28,6 +32,7 @@ function SingIn(props){
     }
 
     return( 
+      
     <div className='row gy-5'>
       <div className="col-4 sing-in">
         <h3>Авторизация</h3>
@@ -40,7 +45,7 @@ function SingIn(props){
                 Запомнить меня
             </label>
             
-            <button className="btn btn-primary sing-in-form-submit" type="submit" form="sing-in-form">Войти </button>
+            <button className="btn btn-primary sing-in-form-submit"  type="submit" form="sing-in-form">Войти</button>
         </form>
       </div>
     </div>
